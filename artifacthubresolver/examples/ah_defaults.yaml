@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: ah-demo-
+spec:
+  taskRef:
+    resolver: artifacthub
+    resource:
+      - name: kind
+        value: "task"
+      - name: name
+        value: "curl"
+      - name: version
+        value: "0.1.0"
+  params:
+    - name: url
+      value: "www.google.com"
